@@ -12,6 +12,9 @@ class TaskApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Rubik', // added rubik as the preferred font family
+      ),
     );
   }
 }
