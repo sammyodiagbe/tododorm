@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
+import 'package:taskdorm/constants.dart';
 import 'package:taskdorm/screens/taskScreen.dart';
 
 void main(List<String> args) {
@@ -14,9 +15,13 @@ class TaskApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor),
         textTheme: ThemeData.dark().textTheme.apply(
               fontFamily: 'Inter',
             ),
+        // floatingActionButtonTheme: FloatingActionButtonThemeData(
+        //   backgroundColor:
+        // ),
       ),
       themeMode: ThemeMode.dark,
       home: TaskScreen(),
