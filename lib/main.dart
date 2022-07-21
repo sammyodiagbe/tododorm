@@ -14,7 +14,8 @@ class TaskApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Rubik', // added rubik as the preferred font family
+        fontFamily: 'Rubik',
+        // added rubik as the preferred font family
       ),
       home: TaskScreen(),
     );

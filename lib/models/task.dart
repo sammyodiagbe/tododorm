@@ -4,7 +4,7 @@ class Task {
   DateTime? createAt;
   final String tag;
 
-  Task({required this.title, required this.done, required this.tag}) {
+  Task({required this.title, this.done = false, required this.tag}) {
     createAt = DateTime.now();
   }
 }
