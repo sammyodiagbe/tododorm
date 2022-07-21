@@ -17,22 +17,33 @@ class TaskScreen extends StatelessWidget {
       Task(title: 'Learn to code', tag: 'sport'),
     ];
     return SafeArea(
-      child: Container(
-        color: darkThemeBackground,
-        padding: EdgeInsets.all(15),
-        child: Column(
-          children: [
-            CustomNavigationBar(),
-            // listview
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: ((context, index) {
-                  return CustomClassTile();
-                }),
-                itemCount: _tasks.length,
-              ),
-            )
-          ],
+      child: Scaffold(
+        backgroundColor: darkThemeBackground,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            //    showModalBottomSheet(context: context, builder: () {
+            //   return null;
+            // })
+            // }
+          },
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            children: [
+              CustomNavigationBar(),
+              // listview
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: ((context, index) {
+                    return CustomClassTile();
+                  }),
+                  itemCount: _tasks.length,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
