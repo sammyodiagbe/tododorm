@@ -11,10 +11,13 @@ class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Task> _tasks = [
-      Task(title: 'Learn to code', tag: 'sport'),
-      Task(title: 'Read the new book.', tag: 'tech'),
-      Task(title: 'Design the ui for app', tag: 'hobby'),
-      Task(title: 'Play soccer', tag: 'food'),
+      Task(title: 'Learn to code', tag: 'sport', colorCode: '0xffF8AB4A'),
+      Task(title: 'Read the new book.', tag: 'tech', colorCode: '0xffFF7360'),
+      Task(
+          title: 'Design the ui for app',
+          tag: 'hobby',
+          colorCode: '0xffB1D199'),
+      Task(title: 'Play soccer', tag: 'food', colorCode: '0xffaa9aff'),
     ];
     return SafeArea(
       child: Scaffold(
@@ -40,11 +43,12 @@ class TaskScreen extends StatelessWidget {
                     String title = _tasks[index].title;
                     String tag = _tasks[index].tag;
                     bool done = _tasks[index].done;
+                    int colorCode = int.parse(_tasks[index].colorCode);
                     return CustomClassTile(
-                      title: title,
-                      tag: tag,
-                      done: done,
-                    );
+                        title: title,
+                        tag: tag,
+                        done: done,
+                        colorCode: colorCode);
                   }),
                   itemCount: _tasks.length,
                 ),

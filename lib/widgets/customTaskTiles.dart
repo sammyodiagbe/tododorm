@@ -6,9 +6,14 @@ class CustomClassTile extends StatelessWidget {
   final String title;
   final String tag;
   bool done;
+  final int colorCode;
 
   CustomClassTile(
-      {Key? key, required this.title, required this.tag, this.done = false})
+      {Key? key,
+      required this.title,
+      required this.tag,
+      this.done = false,
+      required this.colorCode})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,13 +38,19 @@ class CustomClassTile extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title),
+                Text(
+                  title,
+                  style: titleTextStyle,
+                ),
                 SizedBox(height: 5),
                 Text(
                   '10 minutes ago',
                 ),
                 SizedBox(height: 10),
-                CustomTagIndicator(tag: tag)
+                CustomTagIndicator(
+                  tag: tag,
+                  color: colorCode,
+                )
               ],
             ),
 
@@ -54,9 +65,10 @@ class CustomClassTile extends StatelessWidget {
 }
 
 class CustomTagIndicator extends StatelessWidget {
-  String? tag;
+  String tag;
+  int color;
 
-  CustomTagIndicator({this.tag});
+  CustomTagIndicator({required this.tag, required this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,10 +76,13 @@ class CustomTagIndicator extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.green,
+        color: Color(color),
       ),
       child: Center(
-        child: Text(tag ?? 'hobby'),
+        child: Text(
+          tag ?? 'hobby',
+          style: tagTextStyle,
+        ),
       ),
     );
   }
