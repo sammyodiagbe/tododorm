@@ -75,6 +75,9 @@ flutter:
     - family: Rubik
       fonts:
         - asset: assets/fonts/Rubik.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
 
   #   - family: Trajan Pro
   #     fonts:
