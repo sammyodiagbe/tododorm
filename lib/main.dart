@@ -15,7 +15,7 @@ class TaskApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         textTheme: ThemeData.dark().textTheme.apply(
-              fontFamily: 'Rubik',
+              fontFamily: 'Inter',
             ),
       ),
       themeMode: ThemeMode.dark,
