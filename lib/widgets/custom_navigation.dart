@@ -1,14 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 30),
       width: double.infinity,
       child: Row(
         children: [
+          SvgPicture.asset('assets/images/logo.svg'),
+          SizedBox(
+            width: 2,
+          ),
           Text(
             'Taskdom',
             style: TextStyle(
