@@ -12,9 +12,9 @@ class TaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Task> _tasks = [
       Task(title: 'Learn to code', tag: 'sport'),
-      Task(title: 'Learn to code', tag: 'sport'),
-      Task(title: 'Learn to code', tag: 'sport'),
-      Task(title: 'Learn to code', tag: 'sport'),
+      Task(title: 'Read the new book.', tag: 'tech'),
+      Task(title: 'Design the ui for app', tag: 'hobby'),
+      Task(title: 'Play soccer', tag: 'food'),
     ];
     return SafeArea(
       child: Scaffold(
@@ -37,7 +37,14 @@ class TaskScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: ((context, index) {
-                    return CustomClassTile();
+                    String title = _tasks[index].title;
+                    String tag = _tasks[index].tag;
+                    bool done = _tasks[index].done;
+                    return CustomClassTile(
+                      title: title,
+                      tag: tag,
+                      done: done,
+                    );
                   }),
                   itemCount: _tasks.length,
                 ),

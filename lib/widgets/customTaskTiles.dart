@@ -3,6 +3,13 @@ import "package:flutter/material.dart";
 import 'package:taskdorm/constants.dart';
 
 class CustomClassTile extends StatelessWidget {
+  final String title;
+  final String tag;
+  bool done;
+
+  CustomClassTile(
+      {Key? key, required this.title, required this.tag, this.done = false})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,13 +33,13 @@ class CustomClassTile extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Redesign landing page'),
+                Text(title),
                 SizedBox(height: 5),
                 Text(
                   '10 minutes ago',
                 ),
                 SizedBox(height: 10),
-                CustomTagIndicator()
+                CustomTagIndicator(tag: tag)
               ],
             ),
 
@@ -47,18 +54,20 @@ class CustomClassTile extends StatelessWidget {
 }
 
 class CustomTagIndicator extends StatelessWidget {
+  String? tag;
+
+  CustomTagIndicator({this.tag});
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.green,
       ),
-      height: 20,
-      width: 50,
       child: Center(
-        child: Text('hello'),
+        child: Text(tag ?? 'hobby'),
       ),
     );
   }
