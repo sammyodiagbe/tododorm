@@ -29,7 +29,7 @@ class TaskScreen extends StatelessWidget {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(25),
           child: Column(
             children: [
               CustomNavigationBar(),

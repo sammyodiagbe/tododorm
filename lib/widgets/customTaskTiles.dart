@@ -89,7 +89,7 @@ class CustomRadioButton extends StatelessWidget {
           width: _childWidth,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.blue,
+            color: Color(0xff6364FF),
           ),
         ),
       ),
