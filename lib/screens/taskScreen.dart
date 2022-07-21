@@ -29,8 +29,17 @@ class TaskScreen extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return Container(
-                  height: 200,
-                  // color: Colors.white,
+                  height: 500,
+                  color: Color(0xff000000).withOpacity(0.4),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                  ),
                 );
               },
             );
