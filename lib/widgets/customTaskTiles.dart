@@ -65,10 +65,11 @@ class CustomClassTile extends StatelessWidget {
 }
 
 class CustomTagIndicator extends StatelessWidget {
-  String tag;
-  int color;
+  final String tag;
+  final int color;
 
-  CustomTagIndicator({required this.tag, required this.color});
+  const CustomTagIndicator({Key? key, required this.tag, required this.color})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,7 +81,7 @@ class CustomTagIndicator extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          tag ?? 'hobby',
+          tag,
           style: tagTextStyle,
         ),
       ),
