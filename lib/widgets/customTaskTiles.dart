@@ -76,7 +76,7 @@ class CustomClassTile extends StatelessWidget {
 
                 // toggle button
 
-                CustomRadioButton(),
+                CustomRadioButton(task: task),
               ],
             ),
           ),
@@ -114,14 +114,16 @@ class CustomTagIndicator extends StatelessWidget {
 class CustomRadioButton extends StatelessWidget {
   final double _height = 40;
   final double _width = 40;
-
+  Task task;
   final double _childHeight = 20;
   final double _childWidth = 20;
+
+  CustomRadioButton({Key? key, required this.task});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('This is coming together');
+        Provider.of<TaskData>(context, listen: false).updateTask(task);
       },
       child: Container(
         height: _height,
@@ -136,7 +138,7 @@ class CustomRadioButton extends StatelessWidget {
           width: _childWidth,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Color(0xff6364FF),
+            color: task.done ? Color(0xff6364FF) : null,
           ),
         ),
       ),
