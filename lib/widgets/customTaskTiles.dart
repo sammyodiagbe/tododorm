@@ -19,7 +19,27 @@ class CustomClassTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('hey there');
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Are you sure you want to delete this taks.?'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      print('Deleting task');
+                    },
+                    child: Text('Delete'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Go back'),
+                  )
+                ],
+              );
+            });
       },
       child: Container(
         decoration: BoxDecoration(
