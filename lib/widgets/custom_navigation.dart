@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import "../data/task_data.dart";
 
 class CustomNavigationBar extends StatelessWidget {
   @override
@@ -31,7 +33,7 @@ class CustomNavigationBar extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Text('You have 0 tasks')
+          Text('You have ${Provider.of<TaskData>(context).tasksLength} tasks')
         ],
       ),
     );
