@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 import 'package:taskdorm/constants.dart';
+import 'package:taskdorm/data/task_data.dart';
 import 'package:taskdorm/widgets/bottomSheet.dart';
 import 'package:taskdorm/widgets/customTaskTiles.dart';
 import 'package:taskdorm/widgets/custom_navigation.dart';
@@ -11,15 +13,6 @@ class TaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Task> _tasks = [
-      Task(title: 'Learn to code', tag: 'sport', colorCode: '0xffF8AB4A'),
-      Task(title: 'Read the new book.', tag: 'tech', colorCode: '0xffFF7360'),
-      Task(
-          title: 'Design the ui for app',
-          tag: 'hobby',
-          colorCode: '0xffB1D199'),
-      Task(title: 'Play soccer', tag: 'food', colorCode: '0xffaa9aff'),
-    ];
     return SafeArea(
       child: Scaffold(
         backgroundColor: darkThemeBackground,
@@ -47,9 +40,10 @@ class TaskScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: ((context, index) {
-                    return CustomClassTile(task: _tasks[index]);
+                    Task _task = Provider.of<TaskData>(context).getTasks[index];
+                    return CustomClassTile(task: _task);
                   }),
-                  itemCount: _tasks.length,
+                  itemCount: Provider.of<TaskData>(context).tasksLength,
                 ),
               )
             ],
