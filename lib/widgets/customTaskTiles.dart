@@ -26,7 +26,10 @@ class CustomClassTile extends StatelessWidget {
                           provider.deleteTask(task);
                           Navigator.pop(context);
                         },
-                        child: Text('Delete'),
+                        child: Text(
+                          'Delete',
+                          style: TextStyle(color: redishColor),
+                        ),
                       ),
                       TextButton(
                         onPressed: () {
