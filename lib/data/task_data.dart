@@ -10,7 +10,7 @@ class TaskData extends ChangeNotifier {
   ];
 
   List<Task> get getTasks {
-    return _tasks;
+    return _tasks.reversed.toList();
   }
 
   int get tasksLength {

@@ -6,8 +6,14 @@ import 'package:taskdorm/constants.dart';
 import 'package:taskdorm/data/task_data.dart';
 import 'package:taskdorm/widgets/tagCapsule.dart';
 
-class BottomSheetWidget extends StatelessWidget {
+class BottomSheetWidget extends StatefulWidget {
+  @override
+  State<BottomSheetWidget> createState() => _BottomSheetWidgetState();
+}
+
+class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   String _tagName = 'tech';
+  String _textInput = '';
 
   void setTag(String tagName) {
     _tagName = tagName;
@@ -15,8 +21,6 @@ class BottomSheetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _textInput = '';
-
     return Container(
       color: Color(0xff000000).withOpacity(0.4),
       child: Container(
