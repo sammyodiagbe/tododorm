@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
 import 'package:taskdorm/constants.dart';
+import 'package:taskdorm/widgets/bottomSheet.dart';
 import 'package:taskdorm/widgets/customTaskTiles.dart';
 import 'package:taskdorm/widgets/custom_navigation.dart';
 import 'package:taskdorm/models/task.dart';
@@ -31,19 +32,7 @@ class TaskScreen extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               builder: (BuildContext context) {
-                return Container(
-                  height: 500,
-                  color: Color(0xff000000).withOpacity(0.4),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
-                  ),
-                );
+                return BottomSheetWidget();
               },
             );
           },
