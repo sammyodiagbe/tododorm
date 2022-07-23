@@ -17,7 +17,7 @@ class TaskApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor),
         textTheme: ThemeData.dark().textTheme.apply(
-              fontFamily: 'Inter',
+              fontFamily: 'Rubik',
             ),
         // floatingActionButtonTheme: FloatingActionButtonThemeData(
         //   backgroundColor:

@@ -23,7 +23,10 @@ class TaskScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: darkThemeBackground,
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: Icon(
+            Icons.add,
+            size: 30,
+          ),
           onPressed: () {
             showModalBottomSheet(
               context: context,
