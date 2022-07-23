@@ -47,15 +47,7 @@ class TaskScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: ((context, index) {
-                    String title = _tasks[index].title;
-                    String tag = _tasks[index].tag;
-                    bool done = _tasks[index].done;
-                    int colorCode = int.parse(_tasks[index].colorCode);
-                    return CustomClassTile(
-                        title: title,
-                        tag: tag,
-                        done: done,
-                        colorCode: colorCode);
+                    return CustomClassTile(task: _tasks[index]);
                   }),
                   itemCount: _tasks.length,
                 ),

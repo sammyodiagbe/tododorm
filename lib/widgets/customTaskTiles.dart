@@ -1,85 +1,83 @@
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 // ignore_for_file: prefer_const_constructors
 import 'package:taskdorm/constants.dart';
+import 'package:taskdorm/data/task_data.dart';
+import '../models/task.dart';
 
 class CustomClassTile extends StatelessWidget {
-  final String title;
-  final String tag;
-  bool done;
-  final int colorCode;
+  final Task task;
 
-  CustomClassTile(
-      {Key? key,
-      required this.title,
-      required this.tag,
-      this.done = false,
-      required this.colorCode})
-      : super(key: key);
+  CustomClassTile({Key? key, required this.task}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('Are you sure you want to delete this taks.?'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      print('Deleting task');
-                    },
-                    child: Text('Delete'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Go back'),
-                  )
-                ],
-              );
-            });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: tileContainerColor,
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
-        padding: EdgeInsets.all(15),
-        margin: EdgeInsets.symmetric(
-          vertical: 8,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return Consumer<TaskData>(
+      builder: (context, provider, child) {
+        return GestureDetector(
+          onLongPress: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Are you sure you want to delete this taks.?'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          print('Deleting task');
+                        },
+                        child: Text('Delete'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text('Go back'),
+                      )
+                    ],
+                  );
+                });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: tileContainerColor,
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+            padding: EdgeInsets.all(15),
+            margin: EdgeInsets.symmetric(
+              vertical: 8,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  title,
-                  style: titleTextStyle,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      task.title,
+                      style: titleTextStyle,
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      '10 minutes ago',
+                    ),
+                    SizedBox(height: 10),
+                    CustomTagIndicator(
+                      tag: task.tag,
+                      color: int.parse(task.colorCode),
+                    )
+                  ],
                 ),
-                SizedBox(height: 5),
-                Text(
-                  '10 minutes ago',
-                ),
-                SizedBox(height: 10),
-                CustomTagIndicator(
-                  tag: tag,
-                  color: colorCode,
-                )
+
+                // toggle button
+
+                CustomRadioButton(),
               ],
             ),
-
-            // toggle button
-
-            CustomRadioButton(),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
