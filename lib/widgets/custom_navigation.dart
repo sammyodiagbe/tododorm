@@ -8,21 +8,30 @@ class CustomNavigationBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30),
       width: double.infinity,
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset('assets/images/logo.svg'),
+          Row(
+            children: [
+              SvgPicture.asset('assets/images/logo.svg'),
+              SizedBox(
+                width: 2,
+              ),
+              Text(
+                'Taskdom',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ],
+          ),
           SizedBox(
-            width: 2,
+            height: 20,
           ),
-          Text(
-            'Taskdom',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.none,
-            ),
-          ),
+          Text('You have 0 tasks')
         ],
       ),
     );
