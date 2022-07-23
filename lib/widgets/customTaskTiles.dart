@@ -19,7 +19,7 @@ class CustomClassTile extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text('Are you sure you want to delete this taks.?'),
+                    title: Text('Are you sure you want to delete this task.?'),
                     actions: [
                       TextButton(
                         onPressed: () {
