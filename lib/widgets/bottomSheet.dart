@@ -7,7 +7,6 @@ class BottomSheetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
       color: Color(0xff000000).withOpacity(0.4),
       child: Container(
         padding: EdgeInsets.all(25),
@@ -30,16 +29,18 @@ class BottomSheetWidget extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text('Create a new task.'),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             TextField(
               decoration: InputDecoration(
                 filled: true,
+                contentPadding: EdgeInsets.symmetric(horizontal: 20),
                 fillColor: tileContainerColor,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 hintText: 'Enter task name.',
+                hintStyle: TextStyle(fontSize: 14),
               ),
             )
           ],
